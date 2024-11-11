@@ -31,6 +31,10 @@ const itemMasterSchema = new mongoose.Schema({
   itemStatus: { type: String, enum: ['Available', 'Out of Stock', 'Discontinued'], required: true },
   description: { type: String },
   specialInstructions: { type: String },
+   stock: {
+    quantity: { type: Number, required: true, default: 0 },
+    unit: { type: String, enum: ['kg', 'gm', 'pieces'], required: true, default: 'pieces' }
+  },
 }, { timestamps: true });
 
 module.exports = mongoose.model('ItemMaster', itemMasterSchema);
